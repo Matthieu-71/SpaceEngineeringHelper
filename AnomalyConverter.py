@@ -38,9 +38,9 @@ def Ecce2True_2(E,ec):
 
 def True2Ecce(T,ec):
     # Calculates the eccentric anomaly from the true anomaly
-    E = math.cos(T)*(1 - ec*math.cos(E))/(math.cos(E) - ec)
-    print(E)
-    return E
+	E = math.acos((ec + math.cos(T))/(1 + ec*math.cos(T)))
+	print(E)
+	return E
 
 def True2Mean(T,ec):
     # Calculates the mean anomaly from the true anomaly

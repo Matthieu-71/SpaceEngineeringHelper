@@ -7,6 +7,7 @@ import imp
 import matplotlib.pyplot as pl
 import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
+import SphereCreator
 
 
 # Authour : Matthieu Durand
@@ -42,7 +43,7 @@ def stateVector(a,ec,inc,RA,Ap,TA):
 	perV = (mu_Earth/h)*np.array([-m.sin(TA),ec + m.cos(TA),0]) # Compute velocity in perifocal frame 
 	geoV = np.array([perV[0]*(m.cos(Ap)*m.cos(RA)-m.sin(Ap)*m.cos(inc)*m.sin(RA)) - perV[1]*(m.sin(Ap)*m.cos(RA)+m.cos(Ap)*m.cos(inc)*m.sin(RA)),
 					 perV[0]*(m.cos(Ap)*m.sin(RA)-m.sin(Ap)*m.cos(inc)*m.cos(RA)) + perV[1]*(m.cos(Ap)*m.cos(inc)*m.cos(RA)-m.sin(Ap)*m.sin(RA)),
-					 perV[0]*(m.sin(Ap)*m.sin(inc))+perV[1]*(m.cos(Ap)*m.sin(inc))]) # Compute radius in geocentric frame
+					 perV[0]*(m.sin(Ap)*m.sin(inc))+perV[1]*(m.cos(Ap)*m.sin(inc))]) # Compute velocity vector in geocentric frame
 					 
 	return geoR
 	
@@ -70,6 +71,9 @@ for i in range(0,100):
 fig = pl.figure()
 ax = fig.gca(projection='3d')
 pl.plot(X,Y,Z, color='k')
+[x,y,z] = SphereCreator.showBody('Earth')
+
+ax.plot_surface(x, y, z,  rstride=4, cstride=4, color='b')
 pl.show()
 # stateVector(sma,ecc,inc,raa,aop,tra)
 # new = ac.Mean2Ecce(0.488692,ecc)

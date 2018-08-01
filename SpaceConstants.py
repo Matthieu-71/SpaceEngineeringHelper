@@ -30,3 +30,18 @@ class mass:
     Uranus  = 86.83 * 10**24
     Neptune = 102.4 * 10**24
     # Values are in kg, source Howard...
+
+# --- Average radii of celestial bodies ---
+
+class AvgRad:
+    Sun     = 696000
+    Mercury = 2440
+    Venus   = 6052
+    Earth   = 6378
+    Moon    = 1737
+    Mars    = 3396
+    Jupiter = 71490
+    Saturn  = 60270
+    Uranus  = 25560
+    Neptune = 24760
+    # Values are in km, source Howard...
